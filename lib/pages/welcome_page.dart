@@ -34,6 +34,7 @@ class _WelcomePageState extends State<WelcomePage> {
               child: Container(
                 margin: EdgeInsets.only(top: height / 15, left: 20, right: 20),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,9 +54,25 @@ class _WelcomePageState extends State<WelcomePage> {
                               size: 16,
                             )),
                         const SizedBox(height: 20),
-                        const ResponsiveButton(
-                            height: 60, width: 100, borderRadius: 10)
+                         Container(
+                          constraints: const BoxConstraints.tightFor(),
+                          child: const ResponsiveButton(
+                            height: 50, width: 90, borderRadius: 10, /*text: "Book Trip Now"*/) ,
+                        )
+
                       ],
+                    ),
+                    Column(
+                      children: List.generate(3, (index){
+                        return Container(
+                          width: 8,
+                          height: 25,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: AppColors.mainColor
+                          ),
+                        );
+                      }),
                     )
                   ],
                 ),

@@ -8,15 +8,17 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    /*double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;*/
+    TabController tabController = TabController(length: 3, vsync: this);
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: Column(
         children: [
+          //top bar
           Container(
             padding: const EdgeInsets.only(top: 70, left: 20, right: 20),
             child: Row(
@@ -35,19 +37,50 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+          //Header
           Container(
-            alignment: Alignment.topLeft,
-            margin: const EdgeInsets.only(left: 20, right: 20, top: 40),
-            child: const AppLargeText(
-              text: "Discover",
+              margin: const EdgeInsets.only(left: 20, right: 20, top: 40),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const [
+                  AppLargeText(
+                    text: "Discover",
+                  ),
+                ],
+              )),
+          //Tab Bar
+          Container(
+              margin: EdgeInsets.only(top: 10),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: TabBar(
+                  labelPadding: EdgeInsets.only(left: 20,right: 20),
+                  controller: tabController,
+                  labelColor: Colors.black,
+                  unselectedLabelColor: Colors.grey,
+                  isScrollable: true,
+                  indicatorSize: TabBarIndicatorSize.label,
+                  tabs: const [
+                    Tab(text: "Places"),
+                    Tab(text: "Inspiration"),
+                    Tab(text: "Emotions")
+                  ],
+                ),
+              )),
+          //TabBarView
+          Container(
+            margin: const EdgeInsets.only(left: 20,right: 20,top: 20),
+            height: 300,
+            width: double.maxFinite,
+            child: TabBarView(
+              controller: tabController,
+              children: const [
+                Text("Hi"),
+                Text("There"),
+                Text("Buy"),
+              ],
             ),
-          ),
-          /*Container(
-            margin: const EdgeInsets.only(left: 20, right: 20, top: 30),
-            child: TabBar(
-              tabs: [TabBar],
-            )
-          )*/
+          )
         ],
       ),
     );

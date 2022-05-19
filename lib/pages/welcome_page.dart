@@ -40,11 +40,9 @@ class _WelcomePageState extends State<WelcomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const AppLargeText(
-                            text: Strings.welcomePageFirstHeader,
-                            size: 40),
+                            text: Strings.welcomePageFirstHeader, size: 40),
                         const AppText(
-                            text: Strings.welcomePageFirstSubHeader,
-                            size: 25),
+                            text: Strings.welcomePageFirstSubHeader, size: 25),
                         Container(
                             margin: const EdgeInsets.only(top: 20),
                             width: width / 1.8,
@@ -54,23 +52,25 @@ class _WelcomePageState extends State<WelcomePage> {
                               size: 16,
                             )),
                         const SizedBox(height: 20),
-                         Container(
+                        Container(
                           constraints: const BoxConstraints.tightFor(),
                           child: const ResponsiveButton(
-                            height: 50, width: 90, borderRadius: 10, /*text: "Book Trip Now"*/) ,
+                            height: 50,
+                            width: 90,
+                            borderRadius: 10, /*text: "Book Trip Now"*/
+                          ),
                         )
-
                       ],
                     ),
                     Column(
-                      children: List.generate(3, (index){
+                      children: List.generate(3, (indexDots) {
                         return Container(
                           width: 8,
-                          height: 25,
+                          margin: const EdgeInsets.only(bottom: 4),
+                          height: index == indexDots ? 24 : 8,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: AppColors.mainColor
-                          ),
+                              borderRadius: BorderRadius.circular(8),
+                              color: index == indexDots ?AppColors.mainColor: AppColors.mainColor.withOpacity(0.5)),
                         );
                       }),
                     )

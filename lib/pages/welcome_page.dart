@@ -54,7 +54,7 @@ class _WelcomePageState extends State<WelcomePage> {
                         const SizedBox(height: 20),
                         Container(
                           constraints: const BoxConstraints.tightFor(),
-                          child: const ResponsiveButton(
+                          child: ResponsiveButton(
                             height: 50,
                             width: 90,
                             borderRadius: 10, /*text: "Book Trip Now"*/

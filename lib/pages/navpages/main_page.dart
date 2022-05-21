@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/pages/navpages/home_page.dart';
+import 'package:flutter_demo/pages/home_page.dart';
 import 'package:flutter_demo/pages/navpages/my_page.dart';
 import 'package:flutter_demo/pages/navpages/bar_item_page.dart';
 import 'package:flutter_demo/pages/navpages/search_page.dart';

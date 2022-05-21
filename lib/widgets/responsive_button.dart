@@ -5,24 +5,24 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class ResponsiveButton extends StatelessWidget {
   final bool isResponsive;
-  final double width;
-  final double height;
+  double? width;
+  double? height;
   final double borderRadius;
   final String text;
 
-  const ResponsiveButton(
+  ResponsiveButton(
       {Key? key,
       this.isResponsive = false,
-      this.width = 100,
-      this.height = 50,
+      this.width,
+      this.height,
       this.text = "",
       this.borderRadius = 10})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if (isResponsive){
-      return Container(
+    return Flexible(
+      child: Container(
         width: width,
         height: height,
         decoration: BoxDecoration(
@@ -39,47 +39,17 @@ class ResponsiveButton extends StatelessWidget {
               color: Colors.white,
             ),
             SizedBox(
-            width: 10,
-            height: height,
-          ),
-          AppText(
-            size: 16,
-            text: text,
-            color: Colors.white,
-          )
-          ],
-        ),
-      );
-    }
-    else {
-      return Container(
-        width: width,
-        height: height,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(borderRadius),
-            color: AppColors.mainColor),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(
-              "img/button-one.svg",
-              width: 60,
-              height: 25,
-              alignment: Alignment.center,
-              color: Colors.white,
+              width: isResponsive == false ? 0 : 10,
+              height: height,
             ),
-            /*SizedBox(
-            width: 10,
-            height: height,
-          ),
-          AppText(
-            size: 16,
-            text: text,
-            color: Colors.white,
-          )*/
+            AppText(
+              size: 16,
+              text: text,
+              color: Colors.white,
+            )
           ],
         ),
-      );
-    }
+      ),
+    );
   }
 }

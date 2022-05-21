@@ -94,31 +94,31 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
-                        margin: EdgeInsets.only(right: 20),
+                        margin: const EdgeInsets.only(right: 20),
                         width: 200,
                         height: 300,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.white,
-                            image: DecorationImage(
+                            image: const DecorationImage(
                                 image: AssetImage("img/mountain.webp"),
                                 fit: BoxFit.cover)),
                       );
                     },
                   ),
-                  Text("There"),
-                  Text("Buy"),
+                  const Text("There"),
+                  const Text("Buy"),
                 ],
               ),
             ),
             //Explore More
             Container(
-              margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   AppLargeText(
-                    text: "Exprore More",
+                    text: "Explore More",
                     size: 16,
                     color: Colors.black87,
                   ),
@@ -133,13 +133,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             Container(
               height: 120,
               width: double.maxFinite,
-              margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 4,
+                  itemCount: images.length,
                   itemBuilder: (context, index) {
                     return Container(
-                      margin: EdgeInsets.only(right: 20),
+                      margin: const EdgeInsets.only(right: 20),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -159,9 +159,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               color: AppColors.mainColor,
                             ),
                           ),
-                          Container(
-                              child:
-                                  AppText(text: images.values.elementAt(index)))
+                          AppText(text: images.values.elementAt(index))
                         ],
                       ),
                     );

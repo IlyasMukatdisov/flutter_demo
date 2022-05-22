@@ -1,79 +1,71 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/res/colors/colors.dart';
-import 'package:flutter_demo/widgets/app_button.dart';
 import 'package:flutter_demo/widgets/app_large_text.dart';
 import 'package:flutter_demo/widgets/app_text.dart';
-import 'package:flutter_demo/widgets/responsive_button.dart';
 
-class DetailPage extends StatefulWidget {
-  const DetailPage({Key? key}) : super(key: key);
+import '../res/colors/colors.dart';
+import '../widgets/app_button.dart';
+import '../widgets/responsive_button.dart';
+
+class DetailPageCopy extends StatefulWidget {
+  const DetailPageCopy({Key? key}) : super(key: key);
 
   @override
-  State<DetailPage> createState() => _DetailPageState();
+  State<DetailPageCopy> createState() => _DetailPageCopyState();
 }
 
-class _DetailPageState extends State<DetailPage> {
+class _DetailPageCopyState extends State<DetailPageCopy> {
   int gottenStars = 4;
   int selectedIndex = -1;
-  int personNumber = 1;
 
   @override
   Widget build(BuildContext context) {
+    double height =
+        MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
-        width: double.maxFinite,
-        height: double.maxFinite,
-        child: Stack(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("lib/res/img/mountain.webp"), fit: BoxFit.cover)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Positioned(
-                left: 0,
-                right: 0,
-                child: Container(
-                  width: double.maxFinite,
-                  height: 350,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("img/mountain.webp"),
-                          fit: BoxFit.cover)),
-                )),
-            Positioned(
-                left: 15,
-                top: 50,
-                right: 15,
-                child: Container(
-                  width: width,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.menu,
-                            color: Colors.white,
-                          )),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.more_vert,
-                            color: Colors.white,
-                          ))
-                    ],
+            Container(
+              padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
+              alignment: Alignment.topCenter,
+              width: width,
+              height: height * 0.4,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Icon(
+                    Icons.menu,
+                    color: Colors.white,
                   ),
-                )),
-            Positioned(
-                top: 320,
-                child: Container(
-                  width: width,
-                  height: 500,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30),
-                          topRight: Radius.circular(30))),
+                  Icon(
+                    Icons.more_vert,
+                    color: Colors.white,
+                  )
+                ],
+              ),
+            ),
+            Expanded(
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30)),
+                ),
+                child: SingleChildScrollView(
                   child: Container(
-                    margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(30),
+                            topRight: Radius.circular(30)),
+                        color: Colors.white),
+                    padding: const EdgeInsets.only(
+                        top: 20, bottom: 20, left: 20, right: 20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -85,16 +77,16 @@ class _DetailPageState extends State<DetailPage> {
                               size: 24,
                               color: Colors.black.withOpacity(0.77),
                             ),
-                            AppLargeText(
+                            const AppLargeText(
                               text: "\$250",
                               size: 24,
                               color: AppColors.mainColor,
                             )
                           ],
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Row(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.place,
                               color: AppColors.mainColor,
@@ -107,7 +99,7 @@ class _DetailPageState extends State<DetailPage> {
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Row(
@@ -122,17 +114,17 @@ class _DetailPageState extends State<DetailPage> {
                                 );
                               }),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
-                            AppText(
+                            const AppText(
                               text: "(4.0)",
                               color: AppColors.textColor2,
                               size: 14,
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         AppLargeText(
@@ -140,12 +132,12 @@ class _DetailPageState extends State<DetailPage> {
                           size: 20,
                           color: Colors.black.withOpacity(0.8),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        AppText(
+                        const AppText(
                             text: "Number of people in your group", size: 16),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         SingleChildScrollView(
@@ -180,42 +172,45 @@ class _DetailPageState extends State<DetailPage> {
                             ],
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         AppLargeText(
                             text: "Description",
                             size: 24,
                             color: Colors.black.withOpacity(0.8)),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        AppText(
+                        const AppText(
                             text:
                                 "Yosemite National Park is located in central Sierra Nevada in the US State of California. It is located near the wild protected areas. "),
                       ],
                     ),
                   ),
-                )),
-            Positioned(
-                bottom: 20,
-                left: 20,
-                right: 20,
-                child: Row(
-                  children: [
-                    AppButton(
-                      borderColor: AppColors.textColor1,
-                      backgroundColor: Colors.white,
-                      size: 50,
-                      isIcon: true,
-                      icon: Icons.favorite_outline,
-                      iconColor: AppColors.textColor1,
-                    ),
-                    ResponsiveButton(
-                      height: 50,
-                      isResponsive: true,
-                      text: "Book Trip now",
-                    )
-                  ],
-                ))
+                ),
+              ),
+            ),
+            Container(
+              alignment: Alignment.bottomCenter,
+              decoration: const BoxDecoration(color: Colors.white),
+              padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+              child: Row(
+                children: [
+                  AppButton(
+                    borderColor: AppColors.textColor1,
+                    backgroundColor: Colors.white,
+                    size: 50,
+                    isIcon: true,
+                    icon: Icons.favorite_outline,
+                    iconColor: AppColors.textColor1,
+                  ),
+                  ResponsiveButton(
+                    height: 50,
+                    isResponsive: true,
+                    text: "Book Trip now",
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),

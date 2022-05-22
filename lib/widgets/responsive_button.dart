@@ -1,7 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/res/colors/colors.dart';
 import 'package:flutter_demo/widgets/app_text.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class ResponsiveButton extends StatelessWidget {
   final bool isResponsive;
@@ -9,6 +9,7 @@ class ResponsiveButton extends StatelessWidget {
   double? height;
   final double borderRadius;
   final String text;
+  double? textSize;
 
   ResponsiveButton(
       {Key? key,
@@ -16,6 +17,7 @@ class ResponsiveButton extends StatelessWidget {
       this.width,
       this.height,
       this.text = "",
+      this.textSize = 16,
       this.borderRadius = 10})
       : super(key: key);
 
@@ -31,22 +33,20 @@ class ResponsiveButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(
-              "img/button-one.svg",
-              width: 60,
-              height: 25,
-              alignment: Alignment.center,
-              color: Colors.white,
-            ),
+            Icon(Icons.arrow_forward_ios, color: Colors.white, size: textSize),
+            Icon(Icons.arrow_forward_ios, color: Colors.white, size: textSize),
+            Icon(Icons.arrow_forward_ios, color: Colors.white, size: textSize),
             SizedBox(
-              width: isResponsive == false ? 0 : 10,
+              width: isResponsive == true ? 10 : 0,
               height: height,
             ),
-            AppText(
-              size: 16,
-              text: text,
-              color: Colors.white,
-            )
+            isResponsive
+                ? AppText(
+                    size: textSize!,
+                    text: text,
+                    color: Colors.white,
+                  )
+                : SizedBox()
           ],
         ),
       ),

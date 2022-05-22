@@ -29,7 +29,7 @@ class _WelcomePageState extends State<WelcomePage> {
               height: double.maxFinite,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('img/${images[index]}'),
+                      image: AssetImage('lib/res/img/${images[index]}'),
                       fit: BoxFit.cover)),
               child: Container(
                 margin: EdgeInsets.only(top: height / 15, left: 20, right: 20),
@@ -52,14 +52,11 @@ class _WelcomePageState extends State<WelcomePage> {
                               size: 16,
                             )),
                         const SizedBox(height: 20),
-                        Container(
-                          constraints: const BoxConstraints.tightFor(),
-                          child: ResponsiveButton(
+                         ResponsiveButton(
                             height: 50,
                             width: 90,
                             borderRadius: 10, /*text: "Book Trip Now"*/
                           ),
-                        )
                       ],
                     ),
                     Column(

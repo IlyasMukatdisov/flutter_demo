@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_demo/cubit/app_cubits.dart';
 import 'package:flutter_demo/res/colors/colors.dart';
 import 'package:flutter_demo/res/strings/strings.dart';
 import 'package:flutter_demo/widgets/app_large_text.dart';
@@ -17,8 +19,14 @@ class _WelcomePageState extends State<WelcomePage> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery
+        .of(context)
+        .size
+        .width;
+    double height = MediaQuery
+        .of(context)
+        .size
+        .height;
     return Scaffold(
       body: PageView.builder(
           scrollDirection: Axis.vertical,
@@ -52,11 +60,16 @@ class _WelcomePageState extends State<WelcomePage> {
                               size: 16,
                             )),
                         const SizedBox(height: 20),
-                         ResponsiveButton(
+                        GestureDetector(
+                          onTap: () {
+                            BlocProvider.of<AppCubits>(context).getData();
+                          },
+                          child: ResponsiveButton(
                             height: 50,
                             width: 90,
                             borderRadius: 10, /*text: "Book Trip Now"*/
                           ),
+                        ),
                       ],
                     ),
                     Column(

@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.white,
                             image: const DecorationImage(
-                                image: AssetImage("img/mountain.webp"),
+                                image: AssetImage("lib/res/img/mountain.webp"),
                                 fit: BoxFit.cover)),
                       );
                     },
@@ -154,7 +154,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     fit: BoxFit.cover)*/
                             ),
                             child: SvgPicture.asset(
-                              "img/${images.keys.elementAt(index)}",
+                              "lib/res/img/${images.keys.elementAt(index)}",
                               fit: BoxFit.cover,
                               color: AppColors.mainColor,
                             ),

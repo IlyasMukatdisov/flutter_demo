@@ -17,9 +17,10 @@ class DataModel {
     required this.location,
   });
 
-  factory DataModel.fromJson(Map<String, dynamic> json){
-    return DataModel(name: json["name"],
-        image: json["image"],
+  factory DataModel.fromJson(Map<String, dynamic> json) {
+    return DataModel(
+        name: json["name"],
+        image: json["img"],
         price: json["price"],
         people: json["people"],
         stars: json["stars"],
